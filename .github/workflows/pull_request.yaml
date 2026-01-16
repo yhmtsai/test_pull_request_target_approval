@@ -1,0 +1,11 @@
+on: pull_request
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # It should not be used in practice. just for checking.
+      - run: printenv EXAMPLE
+        env:
+          EXAMPLE: ${{ secrets.EXAMPLE }}
+          PR_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          REPR: ${{ github.repository }}
